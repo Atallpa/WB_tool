@@ -1112,8 +1112,12 @@ Private Sub CB_4_Click()
 
     Dim Uf, Gf, co As String
 
-    Dim rngPoF as Variant
+    Dim rngPoF, rng1,rng2, rng3, rng4 as Range
     rngPoF = Range("Price_OFactor")
+    rng1 = Range("A348")
+    rng2 = Range("ES337")
+    rng3 = Range("A345:A349")
+    rng4 =  Range("A345,A346,A347,A349")
 
     Uf = "Users of the services--user funded"
     Gf = "Tax payers--public funded"
@@ -1121,8 +1125,10 @@ Private Sub CB_4_Click()
     
     Application.ScreenUpdating = False
     '
-    If Range("A348").EntireRow.Hidden = True And Range("ES337") = "Users funded" Then Range("A345:A349").EntireRow.Hidden = True
-    If Range("A345:A349").EntireRow.Hidden = True And Range("ES337") = "Users funded" Then Range("A345,A346,A347,A349").EntireRow.Hidden = False
+    If rng1.EntireRow.Hidden = True And rng2  = "Users funded" Then
+         rng3.EntireRow.Hidden = True
+    If rng3.EntireRow.Hidden = True And rng2 = "Users funded" Then
+        rng4.EntireRow.Hidden = False
     
     'UNITARY PRICE FOR SERVICE
     
