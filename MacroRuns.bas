@@ -1112,6 +1112,9 @@ Private Sub CB_4_Click()
 
     Dim Uf, Gf, co As String
 
+    Dim rngPoF as Variant
+    rngPoF = Range("Price_OFactor")
+
     Uf = "Users of the services--user funded"
     Gf = "Tax payers--public funded"
     co = "Combined"
@@ -1126,12 +1129,12 @@ Private Sub CB_4_Click()
     ' Government funded
     If Range("Serv_Funded") = Gf Then
         If Range("Serv_PriceOtherGov") = True Then
-            Range("Serv_PriceOtherGov") = Range("Price_OFactor")
+            Range("Serv_PriceOtherGov") = rngPoF
             Range("OF_PriceGov").ClearContents
             Range("345:349").EntireRow.Hidden = True
             
         ElseIf Range("Serv_PriceOtherGov") = False Then
-            Range("Serv_PriceOtherGov") = Range("Price_OFactor")
+            Range("Serv_PriceOtherGov") = rngPoF
             Range("345:349").EntireRow.Hidden = False
             Range("347:347").EntireRow.Hidden = True ' Opposite
         End If
@@ -1140,12 +1143,12 @@ Private Sub CB_4_Click()
     ' Users funded
     If Range("Serv_Funded") = Uf Then
         If Range("Serv_PriceOther") = True Then
-            Range("Serv_PriceOther") = Range("Price_OFactor")
+            Range("Serv_PriceOther") = rngPoF
             Range("OF_PriceUF").ClearContents
             Range("345:349").EntireRow.Hidden = True
             
         ElseIf Range("Serv_PriceOther") = False Then
-            Range("Serv_PriceOther") = Range("Price_OFactor")
+            Range("Serv_PriceOther") = rngPoF
             Range("345:349").EntireRow.Hidden = False
             Range("348:348").EntireRow.Hidden = True ' Opposite
         End If
@@ -1155,12 +1158,12 @@ Private Sub CB_4_Click()
     If Range("Serv_Funded") = co Then
         If Range("UF") = True Then
             If Range("Serv_PriceOther") = True Then
-                Range("Serv_PriceOther") = Range("Price_OFactor")
+                Range("Serv_PriceOther") = rngPoF
                 Range("OF_PriceUF").ClearContents
                 Range("345:349").EntireRow.Hidden = True
                 
             ElseIf Range("Serv_PriceOther") = False Then
-                Range("Serv_PriceOther") = Range("Price_OFactor")
+                Range("Serv_PriceOther") = rngPoF
                 Range("345:349").EntireRow.Hidden = False
                 Range("348:348").EntireRow.Hidden = True ' Opposite
             End If
@@ -1168,12 +1171,12 @@ Private Sub CB_4_Click()
         
         If Range("GF") = True Then
             If Range("Serv_PriceOtherGov") = True Then
-                Range("Serv_PriceOtherGov") = Range("Price_OFactor")
+                Range("Serv_PriceOtherGov") = rngPoF
                 Range("OF_PriceGov").ClearContents
                 Range("345:349").EntireRow.Hidden = True
                 
             ElseIf Range("Serv_PriceOtherGov") = False Then
-                Range("Serv_PriceOtherGov") = Range("Price_OFactor")
+                Range("Serv_PriceOtherGov") = rngPoF
                 Range("345:349").EntireRow.Hidden = False
                 Range("347:347").EntireRow.Hidden = True ' Opposite
             End If
@@ -6116,8 +6119,4 @@ Sub Menu7_Click()
 '        Application.Calculation = xlAutomatic
 '        Application.DisplayAlerts = True
 '        Application.EnableEvents = True
-End Sub
-
-sub testing()
-    MsgBox "testing github"
 End Sub
