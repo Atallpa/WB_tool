@@ -6119,9 +6119,6 @@ Sub Menu7_Click()
 End Sub
 
 Sub TestGIT()
-    MsgBox("testing git")asdjkdasdhHLKHJdfFUfgGIT 
-    jkasdkashdkas
-    asjkdhaç
-    asdhjkasd
-    +asdhjkasdashdjas
+    MsgBox("testing git")
+  
 End Sub
